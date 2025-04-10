@@ -1,0 +1,15 @@
+workflows:
+  ios-build:
+    name: Build iOS App
+    max_build_duration: 10
+    environment:
+      xcode: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          echo "No dependencies needed"
+      - name: Build .xcodeproj
+        script: |
+          xcodebuild build -project BabyTracker.xcodeproj -scheme BabyTracker -destination 'platform=iOS Simulator,name=iPhone 14'
+    artifacts:
+      - build/ios/Build/**/*.app
